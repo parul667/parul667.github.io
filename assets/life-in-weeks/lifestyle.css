@@ -1,0 +1,160 @@
+html {
+  font-size: 140%;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    padding: 2rem;
+}
+
+@media (max-width: 800px){
+	html {
+		font-size: 110%;
+    }
+    body{
+        padding: 1rem;
+    }
+}
+
+body,
+html {
+    overflow-x: hidden;
+    margin:0;
+}
+
+.year {
+    clear: both;
+    margin-top: 1.5rem;
+}
+
+.year-label {
+    font-weight: bold;
+    margin-bottom: 0.375rem;
+}
+
+h1{
+    margin:0;
+}
+
+.week {
+    position: relative;
+    display: inline-block;
+    min-width: 0.875rem;
+    /* square size */
+    height: 0.875rem;
+    border: 0.063rem solid #bbb;
+    margin: 0.125rem;
+    padding: 0.063rem 0.125rem;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: visible;
+    background-color: color-mix(
+        in srgb,
+        var(--phase-color) 35%,
+        white
+    );
+}
+
+.week.event {
+    background-color: var(--phase-color, #eee);
+
+}
+
+.future {
+    background-color: color-mix(
+        in srgb,
+        var(--phase-color) 15%,
+        #eee
+    );
+    color: #777;
+    border-color: #ccc;
+}
+
+.week.event.future {
+        background-color: color-mix(
+        in srgb,
+        var(--phase-color) 50%,
+        #eee
+    );
+}
+
+.week.event.birthday {
+    background: #fcfcc7;
+    border-color: #c1bb47;
+}
+
+.week-label-wrap {
+    white-space: nowrap;
+}
+
+.week-label {
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    display: inline-block;
+    width: max-content;
+    left: 50%;
+    bottom: 120%;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    white-space: normal;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 1000;
+    /* ensures tooltip is at least this wide */
+    max-width: 14rem;
+    /* limits max width, wraps text nicely */
+    word-wrap: break-word;
+    /* break long words if needed */
+    padding: 0.625rem 0.875rem;
+    /* a bit more padding */
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none !important;
+}
+
+.week:hover .tooltip {
+    opacity: 1;
+}
+
+.tooltip-date {
+    opacity: 0.8;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.tooltip-divider {
+    border: none;
+    /* border-top: 0.063rem solid #444; */
+    margin: 0.375rem 0;
+}
+
+.birthday-event {
+    color: #fdf0ba;
+    /* bright highlight color for birthdays */
+    font-weight: 600;
+}
+
+.decade-header {
+    clear: both;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem;
+    padding-top: 0.5rem;
+}
